@@ -1,4 +1,4 @@
-# I-CA-2: Part A
+# I-CA-2: Quarto Website (Parts A & B)
 This repository is for the different builds of my Quarto files made to answer questions based on the provided SQL database.
 
 MAIN FILE NAME TO BE ASSESSED:
