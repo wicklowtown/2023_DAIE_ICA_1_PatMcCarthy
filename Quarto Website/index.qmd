@@ -1,5 +1,5 @@
 ---
-title: "Pat McCarthy - Quarto Website (Parts A,B and D"
+title: "Pat McCarthy - Quarto Website (Parts A,B and D)"
 ---
 
 ## Introduction
@@ -48,7 +48,7 @@ library(config)
 
 ## Connecting to the Database
 
-I couldn't get the assigned download of the database (ICA_2023.sqlite) to display properly in R, so I wrote it out in Excel and then imported that in. I was also having trouble for a long time trying to get the database to be read. I then discovered I needed to use the 'install.packages("readxl")' prompt in order for it to be read.
+I couldn't get the assigned download of the database (ICA_2023.sqlite) to display properly in R, so I wrote it out in Excel and then imported that in. I was also having trouble for a long time trying to get the database to be read. I then discovered I needed to use the 'install.packages("readxl")' prompt in order for it to be read. Another issue I faced was in the website creation, trying to make the database show as more than just the first several columns in "a tibble".
 
 ```{r}
 excel_path <- "/Users/pat/Downloads/DB_excel.xlsx"
@@ -66,7 +66,10 @@ if (!is.null(data)) {
   print(head(data))
 } else {
   cat("Failed to read data from Excel file.\n")
+  options(dplyr.print_max = n, dplyr.width = n)
+
 }
+
 ```
 
 ## Adding in and listing Tables from the Database
