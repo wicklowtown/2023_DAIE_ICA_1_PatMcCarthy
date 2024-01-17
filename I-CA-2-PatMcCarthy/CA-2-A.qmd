@@ -30,11 +30,52 @@ library(tidypredict)
 library(config)
 ```
 
-## Connecting to the Database 
+## Connecting to the Database
 
 I couldn't get the assigned download of the database (ICA_2023.sqlite) to display properly in R, so I wrote it out in Excel and then imported that in. I was also having trouble for a long time trying to get the database to be read. I then discovered I needed to use the 'install.packages("readxl")' prompt in order for it to be read.
 
 ```{r}
+install.packages("readxl")
 excel_path <- "/Users/pat/Downloads/DB_excel.xlsx"
+cat("Excel", excel_path, "\n")
+
+data <- tryCatch(
+  readxl::read_excel(excel_path),
+  error = function(e) {
+    message("Error reading Excel file: ", e$message)
+    NULL
+  }
+)
+if (!is.null(data)) {
+  cat("Data successfully read from Excel file.\n")
+  print(head(data))
+} else {
+  cat("Failed to read data from Excel file.\n")
+}
+```
+
+## Adding in and listing Tables from the Database
+
+```{r} DBI::dbGetInfo(query)}
 
 ```
+
+# Questions
+
+1.  List the total budget allocated for projects in each country, along with the count of projects per country. Display sorted by the total budget in descending order.
+
+    ```{r}
+
+    ```
+
+2.  List the average development time for projects, categorized by the number of assets used.
+
+    ```{r}
+
+    ```
+
+3.  List the top three developers based on the number of successful projects they’ve been involved in. Display the results.
+
+    ```{r}
+
+    ```
