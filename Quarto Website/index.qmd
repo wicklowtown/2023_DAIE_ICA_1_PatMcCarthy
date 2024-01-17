@@ -1,0 +1,120 @@
+---
+title: "Quarto Website"
+---
+
+## Introduction
+
+I found this project particularly difficult. I have very little coding experience, with the course being my first time. I have found R Studio more forgiving than the likes of VScode however, as I can run smaller sections/ chunks of code and see if they work while in VScode it seems as though its impossible to move on to another section unless everything is working. I understand the core data analytics finding processes of the module, but I find it challenging finding them through means of coding.
+
+Information on using the following prompts used was found at:
+
+-   <https://blog.rsquaredacademy.com/working-with-databases-using-r/>
+
+## Other Sources of Information
+
+-   <https://learnsql.com/blog/sql-sum-group-by/>
+
+-   <https://stackoverflow.com/questions/289680/difference-between-2-dates-in-sqlite>
+
+-   <https://quarto.org/docs/tools/rstudio.html>
+
+-   <https://quarto.org/docs/websites/>
+
+## Installing Packages
+
+I ran into my first round of problems loading these. I then realized I was entering in the wrong brackets.
+
+I was then having further issues with installation, when I was stuck in a loop of "Updating Loaded Packages" when trying to test the install.packages section.
+
+I used the following source to help solve this issue:
+
+-   <https://community.rstudio.com/t/issue-with-installed-packages-endless-loop-updating-loaded-packages-one-or-more-of-the-packages-that-will-be-updated-by-installation-are-currently-loaded-restarting-r-prior-to-updating-these-packages-is-strongly-recommended/9458>
+
+```{r}
+
+options(repos = c(CRAN = "https://cran.rstudio.com"))
+install.packages(c("DBI", "dbplot", "ggplot2", "modeldb", "tidypredict", "config"))
+install.packages("readxl")
+
+library(DBI)
+library(dbplyr)
+library(dplyr)
+library(dbplot)
+library(ggplot2)
+library(modeldb)
+library(tidypredict)
+library(config)
+```
+
+## Connecting to the Database
+
+I couldn't get the assigned download of the database (ICA_2023.sqlite) to display properly in R, so I wrote it out in Excel and then imported that in. I was also having trouble for a long time trying to get the database to be read. I then discovered I needed to use the 'install.packages("readxl")' prompt in order for it to be read.
+
+```{r}
+excel_path <- "/Users/pat/Downloads/DB_excel.xlsx"
+cat("Excel", excel_path, "\n")
+
+data <- tryCatch(
+  readxl::read_excel(excel_path),
+  error = function(e) {
+    message("Error reading Excel file: ", e$message)
+    NULL
+  }
+)
+if (!is.null(data)) {
+  cat("Data successfully read from Excel file.\n")
+  print(head(data))
+} else {
+  cat("Failed to read data from Excel file.\n")
+}
+```
+
+## Adding in and listing Tables from the Database
+
+```{r}
+install.packages("RSQLite")
+library(RSQLite)
+library(DBI)
+
+db_path <- "/Users/pat/Downloads/DB_excel.xlsx"
+conn <- dbConnect(RSQLite::SQLite(), dbname = db_path)
+
+tryCatch({
+  projects <- dbGetQuery(conn, 'SELECT * FROM Projects')
+  Assets <- dbGetQuery(conn, 'SELECT * FROM Assets')
+  Developers <- dbGetQuery(conn, 'SELECT * FROM Developers')
+  ProjectDevelopers <- dbGetQuery(conn, 'SELECT * FROM ProjectDevelopers')
+  Timelines <- dbGetQuery(conn, 'SELECT * FROM Timelines')
+  Customers <- dbGetQuery(conn, 'SELECT * FROM Customers')
+  AssetsDevelopers <- dbGetQuery(conn, 'SELECT * FROM AssetsDevelopers')
+}, error = function(e) {
+  print(paste("Error: ", e$message))
+})
+
+```
+
+# Part A - SQL Questions
+
+1.  List the total budget allocated for projects in each country, along with the count of projects per country. Display sorted by the total budget in descending order.
+
+    ```{r}
+
+    ```
+
+2.  List the average development time for projects, categorized by the number of assets used.
+
+    ```{r}
+
+    ```
+
+<!-- -->
+
+3.  List the top three developers based on the number of successful projects they’ve been involved in. Display the results.
+
+    ```{r}
+
+    ```
+
+## Part A Conclusion
+
+# Part B - Linear Regression Questions
