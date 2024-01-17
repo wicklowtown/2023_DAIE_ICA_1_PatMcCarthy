@@ -6,7 +6,7 @@ editor: visual
 
 ## Introduction
 
-I found this project particularly difficult.
+I found this project particularly difficult. I have very little coding experience, with the course being my first time. I have found R Studio more forgiving than the likes of VScode however, as I can run smaller sections/ chunks of code and see if they work while in VScode it seems as though its impossible to move on to another section unless everything is working.
 
 Information on using the following prompts was found at:
 
@@ -56,8 +56,28 @@ if (!is.null(data)) {
 
 ## Adding in and listing Tables from the Database
 
-```{r} DBI::dbGetInfo(query)}
+```{r}
+install.packages("RSQLite")
 
+library(RSQLite)
+
+db_path <- "/Users/pat/Downloads/DB_excel.xlsx
+conn <- dbConnect(RSQLite::SQLite(), dbname = db_path)
+
+
+library(DBI)
+
+tryCatch({
+  projects <- dbGetQuery(conn, 'SELECT * FROM Projects')
+  Assets <- dbGetQuery(conn, 'SELECT * FROM Assets')
+  Developers <- dbGetQuery(conn, 'SELECT * FROM Developers')
+  ProjectDevelopers <- dbGetQuery(conn, 'SELECT * FROM ProjectDevelopers')
+  Timelines <- dbGetQuery(conn, 'SELECT * FROM Timelines')
+  Customers <- dbGetQuery(conn, 'SELECT * FROM Customers')
+  AssetsDevelopers <- dbGetQuery(conn, 'SELECT * FROM AssetsDevelopers')
+}, error = function(e) {
+  print(paste("Error: ", e$message))
+})
 ```
 
 # Questions
@@ -79,3 +99,5 @@ if (!is.null(data)) {
     ```{r}
 
     ```
+
+## Part A Conclusion 
