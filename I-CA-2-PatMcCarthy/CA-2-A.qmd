@@ -6,9 +6,9 @@ editor: visual
 
 ## Introduction
 
-I found this project particularly difficult. I have very little coding experience, with the course being my first time. I have found R Studio more forgiving than the likes of VScode however, as I can run smaller sections/ chunks of code and see if they work while in VScode it seems as though its impossible to move on to another section unless everything is working.
+I found this project particularly difficult. I have very little coding experience, with the course being my first time. I have found R Studio more forgiving than the likes of VScode however, as I can run smaller sections/ chunks of code and see if they work while in VScode it seems as though its impossible to move on to another section unless everything is working. I understand the core data analytics finding processes of the module, but I find it challenging finding them through means of coding.
 
-Information on using the following prompts was found at:
+Information on using the following prompts used was found at:
 
 <https://blog.rsquaredacademy.com/working-with-databases-using-r/>
 
@@ -58,14 +58,11 @@ if (!is.null(data)) {
 
 ```{r}
 install.packages("RSQLite")
-
 library(RSQLite)
-
-db_path <- "/Users/pat/Downloads/DB_excel.xlsx
-conn <- dbConnect(RSQLite::SQLite(), dbname = db_path)
-
-
 library(DBI)
+
+db_path <- "/Users/pat/Downloads/DB_excel.xlsx"
+conn <- dbConnect(RSQLite::SQLite(), dbname = db_path)
 
 tryCatch({
   projects <- dbGetQuery(conn, 'SELECT * FROM Projects')
@@ -78,6 +75,7 @@ tryCatch({
 }, error = function(e) {
   print(paste("Error: ", e$message))
 })
+
 ```
 
 # Questions
