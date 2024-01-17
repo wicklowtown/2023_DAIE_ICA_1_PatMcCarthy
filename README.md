@@ -12,3 +12,5 @@ Build 2 - Some formatting adjusting, database display issues resolved.
 Build 3 - Tables added from the database. (dbGetQuery)
 
 Build 4 - Project converted to a Quarto Website.
+
+Builds 5 and 6 - further fixing and reformatting to parts A,B and C on the Quarto Website.
