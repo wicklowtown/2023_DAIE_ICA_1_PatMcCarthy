@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto Website</title>
+<title>Quarto Website - Pat McCarthy - Quarto Website</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,12 +151,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages">Installing Packages</a></li>
   <li><a href="#connecting-to-the-database" id="toc-connecting-to-the-database" class="nav-link" data-scroll-target="#connecting-to-the-database">Connecting to the Database</a></li>
   <li><a href="#adding-in-and-listing-tables-from-the-database" id="toc-adding-in-and-listing-tables-from-the-database" class="nav-link" data-scroll-target="#adding-in-and-listing-tables-from-the-database">Adding in and listing Tables from the Database</a></li>
-  <li><a href="#cran" id="toc-cran" class="nav-link" data-scroll-target="#cran">CRAN</a></li>
   <li><a href="#part-a---sql-questions" id="toc-part-a---sql-questions" class="nav-link" data-scroll-target="#part-a---sql-questions">Part A - SQL Questions</a>
   <ul class="collapse">
   <li><a href="#part-a-conclusion" id="toc-part-a-conclusion" class="nav-link" data-scroll-target="#part-a-conclusion">Part A Conclusion</a></li>
   </ul></li>
-  <li><a href="#part-b---linear-regression-questions" id="toc-part-b---linear-regression-questions" class="nav-link" data-scroll-target="#part-b---linear-regression-questions">Part B - Linear Regression Questions</a></li>
+  <li><a href="#part-b---linear-regression-questions" id="toc-part-b---linear-regression-questions" class="nav-link" data-scroll-target="#part-b---linear-regression-questions">Part B - Linear Regression Questions</a>
+  <ul class="collapse">
+  <li><a href="#part-b-conclusion" id="toc-part-b-conclusion" class="nav-link" data-scroll-target="#part-b-conclusion">Part B Conclusion</a></li>
+  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part D</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -165,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto Website</h1>
+<h1 class="title">Pat McCarthy - Quarto Website</h1>
 </div>
 
 
@@ -202,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="installing-packages" class="level2">
 <h2 class="anchored" data-anchor-id="installing-packages">Installing Packages</h2>
 <p>I ran into my first round of problems loading these. I then realized I was entering in the wrong brackets.</p>
-<p>I was then having further issues with installation, when I was stuck in a loop of “Updating Loaded Packages” when trying to test the install.packages section.</p>
+<p>I was then having further issues with installation, when I was stuck in a loop of “Updating Loaded Packages” when trying to test the install.packages section. A further issue I faced was my file not running because of issues with not mirroring “CRAN” properly. I had to use the R studio website for further information on this.</p>
 <p>I used the following source to help solve this issue:</p>
 <ul>
 <li><a href="https://community.rstudio.com/t/issue-with-installed-packages-endless-loop-updating-loaded-packages-one-or-more-of-the-packages-that-will-be-updated-by-installation-are-currently-loaded-restarting-r-prior-to-updating-these-packages-is-strongly-recommended/9458" class="uri">https://community.rstudio.com/t/issue-with-installed-packages-endless-loop-updating-loaded-packages-one-or-more-of-the-packages-that-will-be-updated-by-installation-are-currently-loaded-restarting-r-prior-to-updating-these-packages-is-strongly-recommended/9458</a></li>
@@ -213,13 +216,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//Rtmp784yPK/downloaded_packages</code></pre>
+    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//RtmpMVoLzh/downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//Rtmp784yPK/downloaded_packages</code></pre>
+    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//RtmpMVoLzh/downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
@@ -314,7 +317,7 @@ Attaching package: 'config'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//Rtmp784yPK/downloaded_packages</code></pre>
+    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//RtmpMVoLzh/downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RSQLite)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
@@ -341,16 +344,12 @@ Use `synchronous` = NULL to turn off this warning.</code></pre>
 </div>
 </div>
 </section>
-<section id="cran" class="level2">
-<h2 class="anchored" data-anchor-id="cran">CRAN</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cran.rstudio.com"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
 <section id="part-a---sql-questions" class="level1">
 <h1>Part A - SQL Questions</h1>
 <ol type="1">
-<li><p>List the total budget allocated for projects in each country, along with the count of projects per country. Display sorted by the total budget in descending order.</p></li>
+<li><p>List the total budget allocated for projects in each country, along with the count of projects per country. Display sorted by the total budget in descending order.</p>
+<pre class="{r} budget_per_country <- dbGetQuery(conn,&quot;SELECT * ProjectID, Budget, CustomerCountry FROM Projects, Customers&quot;),}"><code>
+</code></pre></li>
 <li><p>List the average development time for projects, categorized by the number of assets used.</p></li>
 </ol>
 <!-- -->
@@ -363,8 +362,16 @@ Use `synchronous` = NULL to turn off this warning.</code></pre>
 </section>
 <section id="part-b---linear-regression-questions" class="level1">
 <h1>Part B - Linear Regression Questions</h1>
+<section id="part-b-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="part-b-conclusion">Part B Conclusion</h2>
+</section>
+<section id="part-d" class="level2">
+<h2 class="anchored" data-anchor-id="part-d">Part D</h2>
+<p>For part D, I wanted to play around with giving the website more character.</p>
+<p>I decided upon changing the website’s colour, from white to pink.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

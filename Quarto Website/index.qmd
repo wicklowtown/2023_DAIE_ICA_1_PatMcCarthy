@@ -1,5 +1,5 @@
 ---
-title: "Quarto Website"
+title: "Pat McCarthy - Quarto Website (Parts A,B and D"
 ---
 
 ## Introduction
@@ -24,7 +24,7 @@ Information on using the following prompts used was found at:
 
 I ran into my first round of problems loading these. I then realized I was entering in the wrong brackets.
 
-I was then having further issues with installation, when I was stuck in a loop of "Updating Loaded Packages" when trying to test the install.packages section.
+I was then having further issues with installation, when I was stuck in a loop of "Updating Loaded Packages" when trying to test the install.packages section. A further issue I faced was my file not running because of issues with not mirroring "CRAN" properly. I had to use the R studio website for further information on this.
 
 I used the following source to help solve this issue:
 
@@ -97,8 +97,9 @@ tryCatch({
 
 1.  List the total budget allocated for projects in each country, along with the count of projects per country. Display sorted by the total budget in descending order.
 
-    ```{r}
+    This can be found by using regression on budget vs team size.
 
+    ```{}
     ```
 
 2.  List the average development time for projects, categorized by the number of assets used.
@@ -118,3 +119,15 @@ tryCatch({
 ## Part A Conclusion
 
 # Part B - Linear Regression Questions
+
+## Part B Conclusion
+
+## Part D
+
+For part D, I wanted to play around with giving the website more character.
+
+I decided upon changing the website's colour, from white to pink.
+
+```{r}
+
+```

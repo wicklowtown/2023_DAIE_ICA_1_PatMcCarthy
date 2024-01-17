@@ -2,23 +2,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Quarto Website",
+    "title": "Pat McCarthy - Quarto Website",
     "section": "",
     "text": "I found this project particularly difficult. I have very little coding experience, with the course being my first time. I have found R Studio more forgiving than the likes of VScode however, as I can run smaller sections/ chunks of code and see if they work while in VScode it seems as though its impossible to move on to another section unless everything is working. I understand the core data analytics finding processes of the module, but I find it challenging finding them through means of coding.\nInformation on using the following prompts used was found at:\n\nhttps://blog.rsquaredacademy.com/working-with-databases-using-r/"
   },
   {
     "objectID": "index.html#introduction",
     "href": "index.html#introduction",
-    "title": "Quarto Website",
+    "title": "Pat McCarthy - Quarto Website",
     "section": "",
     "text": "I found this project particularly difficult. I have very little coding experience, with the course being my first time. I have found R Studio more forgiving than the likes of VScode however, as I can run smaller sections/ chunks of code and see if they work while in VScode it seems as though its impossible to move on to another section unless everything is working. I understand the core data analytics finding processes of the module, but I find it challenging finding them through means of coding.\nInformation on using the following prompts used was found at:\n\nhttps://blog.rsquaredacademy.com/working-with-databases-using-r/"
   },
   {
     "objectID": "index.html#installing-packages",
     "href": "index.html#installing-packages",
-    "title": "Quarto Website",
+    "title": "Pat McCarthy - Quarto Website",
     "section": "Installing Packages",
-    "text": "Installing Packages\nI ran into my first round of problems loading these. I then realized I was entering in the wrong brackets.\nI was then having further issues with installation, when I was stuck in a loop of “Updating Loaded Packages” when trying to test the install.packages section.\nI used the following source to help solve this issue:\n\nhttps://community.rstudio.com/t/issue-with-installed-packages-endless-loop-updating-loaded-packages-one-or-more-of-the-packages-that-will-be-updated-by-installation-are-currently-loaded-restarting-r-prior-to-updating-these-packages-is-strongly-recommended/9458\n\n\noptions(repos = c(CRAN = \"https://cran.rstudio.com\"))\ninstall.packages(c(\"DBI\", \"dbplot\", \"ggplot2\", \"modeldb\", \"tidypredict\", \"config\"))\n\n\nThe downloaded binary packages are in\n    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//Rtmp784yPK/downloaded_packages\n\ninstall.packages(\"readxl\")\n\n\nThe downloaded binary packages are in\n    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//Rtmp784yPK/downloaded_packages\n\nlibrary(DBI)\nlibrary(dbplyr)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:dbplyr':\n\n    ident, sql\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(dbplot)\nlibrary(ggplot2)\nlibrary(modeldb)\nlibrary(tidypredict)\nlibrary(config)\n\nDo not use `library(config)` to attach the config package.\nUse `config::get()` directly.\nAttaching the config package can lead to namespace conflicts.\n\n\n\nAttaching package: 'config'\n\n\nThe following objects are masked from 'package:base':\n\n    get, merge"
+    "text": "Installing Packages\nI ran into my first round of problems loading these. I then realized I was entering in the wrong brackets.\nI was then having further issues with installation, when I was stuck in a loop of “Updating Loaded Packages” when trying to test the install.packages section. A further issue I faced was my file not running because of issues with not mirroring “CRAN” properly. I had to use the R studio website for further information on this.\nI used the following source to help solve this issue:\n\nhttps://community.rstudio.com/t/issue-with-installed-packages-endless-loop-updating-loaded-packages-one-or-more-of-the-packages-that-will-be-updated-by-installation-are-currently-loaded-restarting-r-prior-to-updating-these-packages-is-strongly-recommended/9458\n\n\noptions(repos = c(CRAN = \"https://cran.rstudio.com\"))\ninstall.packages(c(\"DBI\", \"dbplot\", \"ggplot2\", \"modeldb\", \"tidypredict\", \"config\"))\n\n\nThe downloaded binary packages are in\n    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//RtmpMVoLzh/downloaded_packages\n\ninstall.packages(\"readxl\")\n\n\nThe downloaded binary packages are in\n    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//RtmpMVoLzh/downloaded_packages\n\nlibrary(DBI)\nlibrary(dbplyr)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:dbplyr':\n\n    ident, sql\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(dbplot)\nlibrary(ggplot2)\nlibrary(modeldb)\nlibrary(tidypredict)\nlibrary(config)\n\nDo not use `library(config)` to attach the config package.\nUse `config::get()` directly.\nAttaching the config package can lead to namespace conflicts.\n\n\n\nAttaching package: 'config'\n\n\nThe following objects are masked from 'package:base':\n\n    get, merge"
   },
   {
     "objectID": "about.html",
@@ -30,23 +30,23 @@
   {
     "objectID": "index.html#other-sources-of-information",
     "href": "index.html#other-sources-of-information",
-    "title": "Quarto Website",
+    "title": "Pat McCarthy - Quarto Website",
     "section": "Other Sources of Information",
     "text": "Other Sources of Information\n\nhttps://learnsql.com/blog/sql-sum-group-by/\nhttps://stackoverflow.com/questions/289680/difference-between-2-dates-in-sqlite\nhttps://quarto.org/docs/tools/rstudio.html\nhttps://quarto.org/docs/websites/"
   },
   {
     "objectID": "index.html#connecting-to-the-database",
     "href": "index.html#connecting-to-the-database",
-    "title": "Quarto Website",
+    "title": "Pat McCarthy - Quarto Website",
     "section": "Connecting to the Database",
     "text": "Connecting to the Database\nI couldn’t get the assigned download of the database (ICA_2023.sqlite) to display properly in R, so I wrote it out in Excel and then imported that in. I was also having trouble for a long time trying to get the database to be read. I then discovered I needed to use the ‘install.packages(“readxl”)’ prompt in order for it to be read.\n\nexcel_path &lt;- \"/Users/pat/Downloads/DB_excel.xlsx\"\ncat(\"Excel\", excel_path, \"\\n\")\n\nExcel /Users/pat/Downloads/DB_excel.xlsx \n\ndata &lt;- tryCatch(\n  readxl::read_excel(excel_path),\n  error = function(e) {\n    message(\"Error reading Excel file: \", e$message)\n    NULL\n  }\n)\nif (!is.null(data)) {\n  cat(\"Data successfully read from Excel file.\\n\")\n  print(head(data))\n} else {\n  cat(\"Failed to read data from Excel file.\\n\")\n}\n\nData successfully read from Excel file.\n# A tibble: 6 × 26\n  ProjectID ProjectName     StartDate           EndDate Budget Status CustomerID\n      &lt;dbl&gt; &lt;chr&gt;           &lt;dttm&gt;              &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;\n1       101 Galaxy Quest    2021-01-01 00:00:00 44469   100000 Compl…          1\n2       102 Mystic Realms   2021-10-01 00:00:00 44561   200000 Compl…          2\n3       103 Shadow Legacy   2022-01-01 00:00:00 44834   150000 Compl…          3\n4       104 Urban Adventure 2022-10-01 00:00:00 2023-0… 250000 Compl…          4\n5       105 Ocean Odyssey   2023-03-01 00:00:00 45473   300000 In Pr…          5\n6       106 Desert Survival 2024-07-01 00:00:00 45657   350000 Plann…          6\n# ℹ 19 more variables: AssetID &lt;dbl&gt;, Type &lt;chr&gt;, CreationDate &lt;dttm&gt;,\n#   AssetName &lt;chr&gt;, AssetsProjectID &lt;dbl&gt;, DeveloperID &lt;dbl&gt;, Name &lt;chr&gt;,\n#   Specialization &lt;chr&gt;, ExperienceYears &lt;dbl&gt;,\n#   `ProjectDevelopers ProjectID` &lt;dbl&gt;, `ProjectDevelopers ID` &lt;dbl&gt;,\n#   Role &lt;chr&gt;, TimelineID &lt;dbl&gt;, Milestone &lt;chr&gt;,\n#   ExpectedCompletionDate &lt;dttm&gt;, ActualCompletionDate &lt;chr&gt;,\n#   CustomerName &lt;chr&gt;, CustomerCity &lt;chr&gt;, CustomerCountry &lt;chr&gt;"
   },
   {
     "objectID": "index.html#adding-in-and-listing-tables-from-the-database",
     "href": "index.html#adding-in-and-listing-tables-from-the-database",
-    "title": "Quarto Website",
+    "title": "Pat McCarthy - Quarto Website",
     "section": "Adding in and listing Tables from the Database",
-    "text": "Adding in and listing Tables from the Database\n\ninstall.packages(\"RSQLite\")\n\n\nThe downloaded binary packages are in\n    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//Rtmp784yPK/downloaded_packages\n\nlibrary(RSQLite)\nlibrary(DBI)\n\ndb_path &lt;- \"/Users/pat/Downloads/DB_excel.xlsx\"\nconn &lt;- dbConnect(RSQLite::SQLite(), dbname = db_path)\n\nWarning: Couldn't set synchronous mode: file is not a database\nUse `synchronous` = NULL to turn off this warning.\n\ntryCatch({\n  projects &lt;- dbGetQuery(conn, 'SELECT * FROM Projects')\n  Assets &lt;- dbGetQuery(conn, 'SELECT * FROM Assets')\n  Developers &lt;- dbGetQuery(conn, 'SELECT * FROM Developers')\n  ProjectDevelopers &lt;- dbGetQuery(conn, 'SELECT * FROM ProjectDevelopers')\n  Timelines &lt;- dbGetQuery(conn, 'SELECT * FROM Timelines')\n  Customers &lt;- dbGetQuery(conn, 'SELECT * FROM Customers')\n  AssetsDevelopers &lt;- dbGetQuery(conn, 'SELECT * FROM AssetsDevelopers')\n}, error = function(e) {\n  print(paste(\"Error: \", e$message))\n})\n\n[1] \"Error:  file is not a database\""
+    "text": "Adding in and listing Tables from the Database\n\ninstall.packages(\"RSQLite\")\n\n\nThe downloaded binary packages are in\n    /var/folders/dn/g_12vb_d0bx9_4flz0d4wt2h0000gn/T//RtmpMVoLzh/downloaded_packages\n\nlibrary(RSQLite)\nlibrary(DBI)\n\ndb_path &lt;- \"/Users/pat/Downloads/DB_excel.xlsx\"\nconn &lt;- dbConnect(RSQLite::SQLite(), dbname = db_path)\n\nWarning: Couldn't set synchronous mode: file is not a database\nUse `synchronous` = NULL to turn off this warning.\n\ntryCatch({\n  projects &lt;- dbGetQuery(conn, 'SELECT * FROM Projects')\n  Assets &lt;- dbGetQuery(conn, 'SELECT * FROM Assets')\n  Developers &lt;- dbGetQuery(conn, 'SELECT * FROM Developers')\n  ProjectDevelopers &lt;- dbGetQuery(conn, 'SELECT * FROM ProjectDevelopers')\n  Timelines &lt;- dbGetQuery(conn, 'SELECT * FROM Timelines')\n  Customers &lt;- dbGetQuery(conn, 'SELECT * FROM Customers')\n  AssetsDevelopers &lt;- dbGetQuery(conn, 'SELECT * FROM AssetsDevelopers')\n}, error = function(e) {\n  print(paste(\"Error: \", e$message))\n})\n\n[1] \"Error:  file is not a database\""
   },
   {
     "objectID": "index.html#cran",
@@ -58,8 +58,29 @@
   {
     "objectID": "index.html#part-a-conclusion",
     "href": "index.html#part-a-conclusion",
-    "title": "Quarto Website",
+    "title": "Pat McCarthy - Quarto Website",
     "section": "Part A Conclusion",
     "text": "Part A Conclusion"
+  },
+  {
+    "objectID": "index.html#part-b-conclusion",
+    "href": "index.html#part-b-conclusion",
+    "title": "Pat McCarthy - Quarto Website",
+    "section": "Part B Conclusion",
+    "text": "Part B Conclusion"
+  },
+  {
+    "objectID": "index.html#part-d-conclusion",
+    "href": "index.html#part-d-conclusion",
+    "title": "Pat McCarthy - Quarto Website",
+    "section": "Part D Conclusion",
+    "text": "Part D Conclusion"
+  },
+  {
+    "objectID": "index.html#part-d",
+    "href": "index.html#part-d",
+    "title": "Pat McCarthy - Quarto Website",
+    "section": "Part D",
+    "text": "Part D\nFor part D, I wanted to play around with giving the website more character.\nI decided upon changing the website’s colour, from white to pink."
   }
 ]
