@@ -1,0 +1,164 @@
+---
+title: "Pat McCarthy - Quarto Website (Parts A,B and D)"
+---
+
+## Introduction
+
+I found this project particularly difficult. I have very little coding experience, with the course being my first time. I have found R Studio more forgiving than the likes of VScode however, as I can run smaller sections/ chunks of code and see if they work while in VScode it seems as though its impossible to move on to another section unless everything is working. I understand the core data analytics finding processes of the module, but I find it challenging finding them through means of coding.
+
+Information on using the following prompts used was found at:
+
+-   <https://blog.rsquaredacademy.com/working-with-databases-using-r/>
+
+## Other Sources of Information
+
+-   <https://learnsql.com/blog/sql-sum-group-by/>
+
+-   <https://stackoverflow.com/questions/289680/difference-between-2-dates-in-sqlite>
+
+-   <https://quarto.org/docs/tools/rstudio.html>
+
+-   <https://quarto.org/docs/websites/>
+
+## Installing Packages
+
+I ran into my first round of problems loading these. I then realized I was entering in the wrong brackets.
+
+I was then having further issues with installation, when I was stuck in a loop of "Updating Loaded Packages" when trying to test the install.packages section. A further issue I faced was my file not running because of issues with not mirroring "CRAN" properly. I had to use the R studio website for further information on this.
+
+I used the following source to help solve this issue:
+
+-   <https://community.rstudio.com/t/issue-with-installed-packages-endless-loop-updating-loaded-packages-one-or-more-of-the-packages-that-will-be-updated-by-installation-are-currently-loaded-restarting-r-prior-to-updating-these-packages-is-strongly-recommended/9458>
+
+```{r}
+
+options(repos = c(CRAN = "https://cran.rstudio.com"))
+install.packages(c("DBI", "dbplot", "ggplot2", "modeldb", "tidypredict", "config"))
+install.packages("readxl")
+
+library(DBI)
+library(dbplyr)
+library(dplyr)
+library(dbplot)
+library(ggplot2)
+library(modeldb)
+library(tidypredict)
+library(config)
+```
+
+## Connecting to the Database
+
+I couldn't get the assigned download of the database (ICA_2023.sqlite) to display properly in R, so I wrote it out in Excel and then imported that in. I was also having trouble for a long time trying to get the database to be read. I then discovered I needed to use the 'install.packages("readxl")' prompt in order for it to be read. Another issue I faced was in the website creation, trying to make the database show as more than just the first several columns in "a tibble".
+
+```{r}
+excel_path <- "/Users/pat/Downloads/DB_excel.xlsx"
+cat("Excel", excel_path, "\n")
+
+data <- tryCatch(
+  readxl::read_excel(excel_path),
+  error = function(e) {
+    message("Error reading Excel file: ", e$message)
+    NULL
+  }
+)
+if (!is.null(data)) {
+  cat("Data successfully read from Excel file.\n")
+  print(head(data))
+} else {
+  cat("Failed to read data from Excel file.\n")
+  options(dplyr.print_max = n, dplyr.width = n)
+
+}
+
+```
+
+## Adding in and listing Tables from the Database
+
+```{r}
+install.packages("RSQLite")
+library(RSQLite)
+library(DBI)
+
+db_path <- "/Users/pat/Downloads/DB_excel.xlsx"
+conn <- dbConnect(RSQLite::SQLite(), dbname = db_path)
+
+tryCatch({
+  projects <- dbGetQuery(conn, 'SELECT * FROM Projects')
+  Assets <- dbGetQuery(conn, 'SELECT * FROM Assets')
+  Developers <- dbGetQuery(conn, 'SELECT * FROM Developers')
+  ProjectDevelopers <- dbGetQuery(conn, 'SELECT * FROM ProjectDevelopers')
+  Timelines <- dbGetQuery(conn, 'SELECT * FROM Timelines')
+  Customers <- dbGetQuery(conn, 'SELECT * FROM Customers')
+  AssetsDevelopers <- dbGetQuery(conn, 'SELECT * FROM AssetsDevelopers')
+}, error = function(e) {
+  print(paste("Error: ", e$message))
+})
+
+```
+
+# Part A - SQL Questions
+
+1.  List the total budget allocated for projects in each country, along with the count of projects per country. Display sorted by the total budget in descending order.
+
+    The aggregate budget allocations for projects within each respective country, concurrently providing a tally of projects per country. This should be organized in descending order based on the total budget. Group the results by country, and calculate the count of projects and the total budget for each country.
+
+    Aggregated project budgets by country: the UK = 550,000, Spain = 650,000, the Netherlands = 400,000, Italy = 250,000, France = 200,000, Germany = 15,000, and missing data is denoted as NA with a value of 0.
+
+    Most countries completed 1 project. The UK and Spain have the most with two projects each. There's an NA status for 34 instances.
+
+    ```{#budget_per_country <- dbGetQuery(conn, "SELECT ProjectID, Budget, CustomerCountry FROM Projects INNER JOIN Customers ON Projects.CustomerID = Customers.CustomerID")}
+
+
+    ```
+
+2.  List the average development time for projects, categorized by the number of assets used.
+
+    Count the number of assets for each project, calculate the average development time, and group the results by the number of assets.
+
+    ```{#projects_per_country <- dbGetQuery(conn, "SELECT Customers.CustomerCountry, Projects.AssetID, COUNT(*) AS count FROM Projects  INNER JOIN Assets ON Projects.AssetID = Assets.AssetID INNER JOIN Customers ON Projects.CustomerID = Customers.CustomerID GROUP BY Customers.CustomerCountry, Projects.AssetID")}
+
+    ```
+
+3.  List the top three developers based on the number of successful projects they’ve been involved in. Display the results.
+
+    This assumes successful projects are defined as projects that have been completed. Therefore, success = 1. The output should be listed by the count in descending order until the top three developers.
+
+    ```{#SELECT DeveloperName, COUNT(ProjectID) AS SuccessfulProjects FROM Projects WHERE Success = 1 GROUP BY DeveloperName ORDER BY SuccessfulProjects DESC LIMIT 3;}
+
+    ```
+
+## Part A Conclusion
+
+I found this section really tough. I faced constant glitches and problems.
+
+# Part B - Linear Regression Questions
+
+## Information sources used:
+
+-   <https://www.graphpad.com/quickcalcs/linear1/>
+
+-   <https://www.ncl.ac.uk/webtemplate/ask-assets/external/maths-resources/statistics/regression-and-correlation/simple-linear-regression.html#:~:text=The%20simple%20linear%20regression%20line,every%20unit%20change%20in%20x%20.>
+
+    1.  Model
+        We can conduct a linear regression analysis to find the relationship between project success, budget, and team size. The findings are visually represented through a plot, such as the scatter plot I've provided below.
+
+    2.  **Interpret:**
+        By examining the coefficients of the model, we aim to find a huge number of insights relevant to the betterment of game development. We can see on a country to country basis, the size of teams, the budget allocated to games, who the top developers are, and more - which can be used to make smarter choices when say, a studio is deciding where to invest in when making a game.
+
+    3.  **Discuss:** Linear regression relies on the assumption that the connection between variables is linear. If this assumption is broken, suggesting the actual relationship is nonlinear, the model might not give accurate predictions. It also doesn't account for outliers in its predictions, of which there could be many.
+
+    ![](images/Screenshot 2024-01-17 at 16.48.01.png)
+
+## Part B Conclusion
+
+Like part A, I also found this to be really difficult. By this stage, my R studio code was giving me a plethora of errors so I was shooting blindly with what I had learned about linear regression.
+
+## Part D
+
+For part D, I wanted to play around with giving the website more character.
+
+I decided upon changing the website's colour, from white to pink. However, I couldn't get this to function properly, and I pulled it from the site. I instead added the "cosmos bootswatch theme" to give the site more personality, which was found on the HTML Theming section of Quarto's website.
+
+```{r} theme: cosmo   # cosmo bootswatch theme}
+
+```
