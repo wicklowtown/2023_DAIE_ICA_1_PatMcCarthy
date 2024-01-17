@@ -1,0 +1,40 @@
+---
+title: "CA-V1"
+format: html
+editor: visual
+---
+
+## Introduction
+
+I found this project particularly difficult.
+
+Information on using the following prompts was found at:
+
+<https://blog.rsquaredacademy.com/working-with-databases-using-r/>
+
+## Installing Packages
+
+I ran into my first round of problems loading these. I then realized I was entering in the wrong brackets.
+
+```{r}
+install.packages(c("DBI", "dbplot", "ggplot2", "modeldb", "tidypredict", "config"))
+install.packages("readxl")
+
+library(DBI)
+library(dbplyr)
+library(dplyr)
+library(dbplot)
+library(ggplot2)
+library(modeldb)
+library(tidypredict)
+library(config)
+```
+
+## Connecting to the Database 
+
+I couldn't get the assigned download of the database (ICA_2023.sqlite) to display properly in R, so I wrote it out in Excel and then imported that in. I was also having trouble for a long time trying to get the database to be read. I then discovered I needed to use the 'install.packages("readxl")' prompt in order for it to be read.
+
+```{r}
+excel_path <- "/Users/pat/Downloads/DB_excel.xlsx"
+
+```
